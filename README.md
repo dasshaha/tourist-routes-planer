@@ -79,6 +79,35 @@ CRoute — это прототип веб-сервиса, предназначе
 База данных: PostgreSQL (для хранения шаблонов маршрутов, точек, пользователей).
 Внешняя интеграция: API картографии (например, OpenStreetMap), AI API (например, OpenAI для генерации описаний) — на этапе проектирования только как предполагаемый компонент на диаграммах.
 
+**2.2. Ментальная карта.**
+На карте показаны основные компоненты проекта.
 <img width="561" height="331" alt="ментальная карта" src="https://github.com/user-attachments/assets/26bad5f0-0f1b-4ae9-a8ac-09c0198e5275" />
 
 
+**2.3. Модель в нотации IDEF0.**
+Показывает основное преобразование входных данных в результат.
+<img width="502" height="301" alt="IDEFO drawio" src="https://github.com/user-attachments/assets/b8bab56a-a2f5-440f-acef-0db246e2c64d" />
+
+
+**2.4. Фрагменты модели в нотации DFD**.
+Показывает обмен данными между пользователем, процессом обработки и хранилищем.
+<img width="141" height="381" alt="DFD drawio" src="https://github.com/user-attachments/assets/ad999988-52d3-4f25-935f-3049b9f13fc1" />
+
+
+**2.5. Модель в нотации BPMN.**
+Процесс использования системы пользователем.
+<img width="141" height="431" alt="BPMN drawio (2)" src="https://github.com/user-attachments/assets/4bc5d1e2-4c0d-4120-83dc-11968a912db7" />
+
+
+**2.6. Модели в нотации UML.**
+1) Показывает взаимодействие пользователя с системой.
+2) Структура основных данных системы.
+<img width="501" height="671" alt="UML drawio" src="https://github.com/user-attachments/assets/103f434a-1f24-433d-ae18-c277a2da64a8" />
+
+
+**2.7. ER диаграмма.**
+Логическая модель базы данных.
+<img width="391" height="391" alt="ER drawio" src="https://github.com/user-attachments/assets/f194527f-b057-45f8-a883-3bbdeed6f823" />
+
+
+**3. База данных (Postgresql).**
