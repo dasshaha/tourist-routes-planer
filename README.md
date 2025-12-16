@@ -122,3 +122,59 @@ CRoute — это прототип веб-сервиса, предназначе
 
 
 **3. База данных (Postgresql).**
+
+Код SQL:
+
+-- Таблица пользователей
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    role VARCHAR(20) DEFAULT 'user' -- 'user', 'admin'
+);
+
+-- Таблица маршрутов
+CREATE TABLE routes (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(200) NOT NULL,
+    description TEXT,
+    city VARCHAR(100),
+    author_id INTEGER REFERENCES users(id),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Таблица точек интереса (POI - Points of Interest)
+CREATE TABLE points_of_interest (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(150) NOT NULL,
+    description TEXT,
+    address VARCHAR(255),
+    latitude DECIMAL(10, 8),
+    longitude DECIMAL(11, 8),
+    estimated_time_minutes INTEGER DEFAULT 30,
+    route_id INTEGER REFERENCES routes(id) ON DELETE CASCADE
+);
+
+-- Таблица тегов/категорий маршрутов
+CREATE TABLE tags (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50) UNIQUE NOT NULL
+);
+
+-- Таблица связи многие-ко-многим между routes и tags
+CREATE TABLE route_tags (
+    route_id INTEGER REFERENCES routes(id) ON DELETE CASCADE,
+    tag_id INTEGER REFERENCES tags(id) ON DELETE CASCADE,
+    PRIMARY KEY (route_id, tag_id)
+);
+
+-- Таблица параметров запроса пользователя
+CREATE TABLE user_requests (
+    id SERIAL PRIMARY KEY,
+    city VARCHAR(100) NOT NULL,
+    style VARCHAR(50) NOT NULL,      -- 'романтический', 'активный', 'исторический'
+    activity VARCHAR(50) NOT NULL,   -- 'музеи', 'шоппинг', 'парк'
+    duration VARCHAR(20) NOT NULL,   -- '1-2 час', '3-4 часа', '6 часов'
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    route_id INTEGER UNIQUE REFERENCES routes(id) ON DELETE SET NULL
+);
