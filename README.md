@@ -104,7 +104,8 @@ CRoute — это прототип веб-сервиса, предназначе
 **2.5. Модель в нотации BPMN.**
 Процесс использования системы пользователем.
 
-<img width="141" height="481" alt="BPMN drawio" src="https://github.com/user-attachments/assets/322fa7d5-5e0c-4b08-98f4-f5fee09651ea" />
+
+<img width="650" height="560" alt="BPMN drawio (1)" src="https://github.com/user-attachments/assets/4c729c27-fc12-4a0f-b16d-cf6dfeb204e8" />
 
 
 
